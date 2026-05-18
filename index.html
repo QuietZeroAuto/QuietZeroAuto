@@ -5,13 +5,10 @@
   <title>QuietZeroAuto</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <script>
@@ -22,13 +19,11 @@
 </script>
 
 <body>
-<!-- LOADER -->
 <div id="loader">
   <img src="logo.png" alt="Logo AutoQuietZero" class="logo-spin" height="80">
 </div>
 
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#">
@@ -50,29 +45,22 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero d-flex align-items-center justify-content-center text-center" 
          style="background: linear-gradient(rgba(10,10,10,0.7), rgba(31,58,147,0.7)), 
                 url('hero-car.jpg') center/cover no-repeat fixed;">
   <div class="hero-content">
-  <h1 class="display-4 fw-bold text-center">
-  QuietZeroAuto
-</h1>
-
-
+    <h1 class="display-4 fw-bold text-center">QuietZeroAuto</h1>
     <p class="lead">Temukan mobil impian anda dengan desain elegan dan performa luar biasa.</p>
     <a href="#produk" class="btn btn-primary btn-lg mt-3">Lihat Koleksi Mobil</a>
   </div>
 </section>
 
 
-<!-- TENTANG -->
 <section class="container mt-5 reveal fade-up" id="tentang">
   <h2 class="text-center mb-4">Tentang Kami</h2>
   <p class="text-center">QuietZeroAuto adalah dealer mobil yang secara khusus munjual mobil eksklusif dari brand mobil Lahkokgini,OTNAS,SLM,dll yang memiliki performa tinggi.</p>
 </section>
 
-<!-- PRODUK -->
 <section class="container mt-5 reveal zoom-in" id="produk">
   <h2 class="text-center mb-4">Produk Unggulan</h2>
   <div class="row g-4">
@@ -109,19 +97,17 @@
   </div>
 </section>
 
-<!-- GALERI -->
 <section class="container mt-5 reveal fade-left" id="galeri">
-  <h2 class="text-center mb-4"></h2>
+  <h2 class="text-center mb-4">Galeri Koleksi</h2>
   <div class="row g-3">
-    <div class="col-md-4"><img src="otnas1.jpg" class="img-fluid rounded shadow"></div>
-    <div class="col-md-4"><img src="otnas2.jpg" class="img-fluid rounded shadow"></div>
-    <div class="col-md-4"><img src="otnas3.jpg" class="img-fluid rounded shadow"></div>
+    <div class="col-md-4"><img src="otnas1.jpg" class="img-fluid rounded shadow" alt="Koleksi 1"></div>
+    <div class="col-md-4"><img src="otnas2.jpg" class="img-fluid rounded shadow" alt="Koleksi 2"></div>
+    <div class="col-md-4"><img src="otnas3.jpg" class="img-fluid rounded shadow" alt="Koleksi 3"></div>
   </div>
 </section>
 
-<!-- TESTIMONI -->
 <section class="container mt-5 reveal fade-right" id="testimoni">
-  <h2 class="text-center mb-4"></h2>
+  <h2 class="text-center mb-4">Testimoni Pelanggan</h2>
   <div class="row g-4">
     <div class="col-md-4">
       <div class="card p-3">
@@ -144,36 +130,38 @@
   </div>
 </section>
 
-<!-- KONTAK -->
 <section class="container mt-5 reveal fade-up" id="kontak">
   <h2 class="text-center mb-4">Hubungi Kami</h2>
-  <form class="row g-3">
-    <div class="col-md-6">
-      <input type="text" class="form-control" placeholder="Nama Anda">
+  
+  <form action="mailto:moehrisang3@gmail.com" method="post" enctype="text/plain">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <input type="text" name="Nama" class="form-control" placeholder="Nama Anda" required>
+        </div>
+        <div class="col-md-6">
+          <input type="email" name="Email" class="form-control" placeholder="Email Anda" required>
+        </div>
+        <div class="col-12">
+          <textarea name="Pesan" class="form-control" rows="4" placeholder="Pesan" required></textarea>
+        </div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-success px-4">Kirim Pesan via Email</button>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
-      <input type="email" class="form-control" placeholder="Email Anda">
-    </div>
-    <div class="col-12">
-      <textarea class="form-control" rows="4" placeholder="Pesan"></textarea>
-    </div>
-    <div class="col-12 text-center">
-      <button type="submit" class="btn btn-success">Kirim Pesan</button>
-    </div>
-<div class="text-center mt-3">
-  <a href="https://wa.me/6281215865756" class="btn btn-outline-success">
-    <i class="fab fa-whatsapp"></i> Chat via WhatsApp
-  </a>
-  <a href="tel:+6281215865756" class="btn btn-outline-primary ms-2">
-    <i class="fas fa-phone"></i> Telepon Kami
-  </a>
-</div>
-<form class="row g-3" action="mailto:moehrisang3@gmail.com" method="post" enctype="text/plain">
-
   </form>
+
+  <div class="text-center mt-4">
+    <a href="https://wa.me/6281215865756" class="btn btn-outline-success" target="_blank">
+      <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+    </a>
+    <a href="tel:+6281215865756" class="btn btn-outline-primary ms-2">
+      <i class="fas fa-phone"></i> Telepon Kami
+    </a>
+  </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="text-center p-4 mt-5">
   <p>© 2026 QuietZeroAuto by RisangXpplg1</p>
   <div>
@@ -183,10 +171,8 @@
   </div>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Scroll Reveal JS -->
 <script>
   function revealOnScroll() {
     const reveals = document.querySelectorAll(".reveal");
@@ -202,15 +188,19 @@
     }
   }
   window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("load", revealOnScroll); // Jalankan sekali saat load
 </script>
 
 <script>
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function(e) {
       e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth"
-      });
+      const target = document.querySelector(this.getAttribute("href"));
+      if(target) {
+        target.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
     });
   });
 </script>
