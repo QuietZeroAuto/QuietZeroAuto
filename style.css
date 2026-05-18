@@ -1,0 +1,299 @@
+/* Palet warna premium */
+:root {
+  --otnas-primary: #0A0A0A;     /* Hitam elegan */
+  --otnas-secondary: #1F3A93;   /* Biru metalik premium */
+  --otnas-gold: #C9A646;        /* Emas champagne */
+  --otnas-gray: #F5F5F5;        /* Abu-abu lembut */
+  --otnas-white: #FFFFF0;
+}
+#loader {
+  position: fixed;
+  z-index: 9999;
+  background: #0A0A0A;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-spin {
+  animation: spin 2s linear infinite;
+}
+
+#loader.hidden {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Reset dasar */
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--otnas-white);
+  color: var(--otnas-primary);
+  scroll-behavior: smooth;
+}
+
+/* Navbar dengan glassmorphism */
+.navbar {
+  background: rgba(10,10,10,0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 0.8rem 1rem;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+.navbar.scrolled {
+  background: rgba(10,10,10,0.85);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--otnas-gold);
+  display: flex;
+  align-items: center;
+}
+.navbar-brand img { margin-right: 8px; }
+.navbar .nav-link {
+  color: var(--otnas-white);
+  font-weight: 500;
+  margin-left: 1rem;
+  transition: color 0.3s ease;
+}
+.navbar .nav-link:hover { color: var(--otnas-secondary); }
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--otnas-white);
+  background: linear-gradient(
+      rgba(10,10,10,0.7),
+      rgba(31,58,147,0.7)
+    ),
+    url('hero-car.jpg') center/cover no-repeat fixed;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  color: var(--otnas-gold);
+}
+.hero h1 img {
+  animation: spin 0.030s linear infinite; /* opsional: logo berputar pelan */
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero p { font-size: 1.25rem; margin-top: 15px; }
+.hero .btn-primary {
+  background-color: var(--otnas-secondary);
+  border: none;
+  font-weight: 600;
+  padding: 12px 30px;
+  transition: all 0.3s ease;
+}
+.hero .btn-primary:hover {
+  background-color: var(--otnas-gold);
+  color: var(--otnas-primary);
+  transform: scale(1.05);
+}
+
+/* Section judul */
+h2 {
+  color: var(--otnas-secondary);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* Card produk dengan glassmorphism + 3D + cahaya otomatis */
+.card {
+  border: none;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  position: relative;
+  overflow: hidden;
+}
+.card:hover {
+  transform: rotateY(6deg) rotateX(3deg) translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+/* Background logo untuk section Tentang */
+#tentang {
+  position: relative;
+  background: #FFFF0; /* warna polos */
+}
+
+#tentang::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("logo.png") center/200px no-repeat;
+  opacity: 0.1; /* transparansi agar tidak mengganggu teks */
+  z-index: 0;
+}
+
+#tentang > * {
+  position: relative;
+  z-index: 1; /* pastikan konten tetap di atas logo */
+}
+
+/* Kamu bisa pakai ulang untuk section lain */
+#produk::before,
+#testimoni::before,
+#kontak::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("logo.png") center/250px no-repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Cahaya otomatis bergerak */
+.card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(201,166,70,0.25),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: lightSweep 6s linear infinite;
+}
+@keyframes lightSweep {
+  0% { transform: translateX(-200%) rotate(25deg); opacity: 0; }
+  20% { opacity: 1; }
+  50% { transform: translateX(200%) rotate(25deg); opacity: 0.8; }
+  100% { transform: translateX(400%) rotate(25deg); opacity: 0; }
+}
+/* Gambar di dalam card */
+.card img {
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.4s ease;
+}
+.card:hover img { transform: scale(1.05); }
+/* Judul dan tombol */
+.card-title { color: var(--otnas-secondary); font-weight: 600; }
+.btn-outline-primary {
+  border-color: var(--otnas-secondary);
+  color: var(--otnas-secondary);
+  transition: all 0.3s ease;
+}
+.btn-outline-primary:hover {
+  background-color: var(--otnas-gold);
+  border-color: var(--otnas-gold);
+  color: var(--otnas-primary);
+  transform: scale(1.05);
+}
+
+/* Galeri & Testimoni dengan parallax */
+#galeri, #testimoni {
+  position: relative;
+  padding: 80px 0;
+  color: var(--otnas-white);
+}
+#galeri { background: url('gallery-bg.jpg') center/cover no-repeat fixed; }
+#galeri::before {
+  content: "";
+  position: absolute; top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.5);
+}
+#testimoni { background: url('testimoni-bg.jpg') center/cover no-repeat fixed; }
+#testimoni::before {
+  content: "";
+  position: absolute; top:0; left:0; right:0; bottom:0;
+  background: rgba(31,58,147,0.6);
+}
+#galeri h2, #galeri .row,
+#testimoni h2, #testimoni .row {
+  position: relative;
+  z-index: 1;
+}
+
+/* Footer dengan glassmorphism */
+footer {
+  background: rgba(10,10,10,0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--otnas-white);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+footer a {
+  color: var(--otnas-white);
+  margin: 0 8px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+footer a:hover {
+  color: var(--otnas-gold);
+  transform: scale(1.2);
+}
+
+/* Animasi teks masuk section */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-up { transform: translateY(40px); }
+.fade-up.active { transform: translateY(0); }
+.fade-left { transform: translateX(-40px); }
+.fade-left.active { transform: translateX(0); }
+.fade-right { transform: translateX(40px); }
+.fade-right.active { transform: translateX(0); }
+.zoom-in { transform: scale(0.85); }
+.zoom-in.active { transform: scale(1); }
+
+/* Efek delay bertingkat untuk produk */
+#produk .row .col-md-4:nth-child(1) .card { transition-delay: 0.1s; }
+#produk .row .col-md-4:nth-child(2) .card { transition-delay: 0.3s; }
+#produk .row .col-md-4:nth-child(3) .card { transition-delay: 0.5s; }
+
+/* Efek delay bertingkat untuk galeri */
+#galeri .row .col-md-4:nth-child(1) img { transition-delay: 0.1s; }
+#galeri .row .col-md-4:nth-child(2) img { transition-delay: 0.3s; }
+#galeri .row .col-md-4:nth-child(3) img { transition-delay: 0.5s; }
+
+/* Efek delay bertingkat untuk testimoni */
+#testimoni .row .col-md-4:nth-child(1) .card { transition-delay: 0.1s; }
+#testimoni .row .col-md-4:nth-child(2) .card { transition-delay: 0.3s; }
+#testimoni .row .col-md-4:nth-child(3) .card { transition-delay: 0.5s; }
