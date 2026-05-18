@@ -6,6 +6,7 @@
   --otnas-gray: #F5F5F5;        /* Abu-abu lembut */
   --otnas-white: #FFFFF0;
 }
+
 #loader {
   position: fixed;
   z-index: 9999;
@@ -38,11 +39,16 @@
   }
 }
 
-/* Reset dasar */
-body {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+/* Reset dasar - MENYEMBUNYIKAN BOGKAH OVERFLOW MOBILE */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   background-color: var(--otnas-white);
   color: var(--otnas-primary);
   scroll-behavior: smooth;
@@ -91,6 +97,7 @@ body {
       rgba(31,58,147,0.7)
     ),
     url('hero-car.jpg') center/cover no-repeat fixed;
+  overflow: hidden;
 }
 .hero h1 {
   font-size: 3.5rem;
@@ -99,12 +106,7 @@ body {
   color: var(--otnas-gold);
 }
 .hero h1 img {
-  animation: spin 0.030s linear infinite; /* opsional: logo berputar pelan */
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  animation: spin 0.030s linear infinite;
 }
 
 .hero p { font-size: 1.25rem; margin-top: 15px; }
@@ -128,6 +130,12 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
+/* Mengunci area section agar background logo & animasi tidak bocor keluar layar */
+#tentang, #produk, #galeri, #testimoni, #kontak {
+  position: relative;
+  overflow: hidden; 
+}
+
 /* Card produk dengan glassmorphism + 3D + cahaya otomatis */
 .card {
   border: none;
@@ -145,10 +153,10 @@ h2 {
   transform: rotateY(6deg) rotateX(3deg) translateY(-8px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
-/* Background logo untuk section Tentang */
+
+/* Background logo untuk section Tentang - FIX KODE WARNA HEX */
 #tentang {
-  position: relative;
-  background: #FFFF0; /* warna polos */
+  background: var(--otnas-white); 
 }
 
 #tentang::before {
@@ -157,16 +165,15 @@ h2 {
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: url("logo.png") center/200px no-repeat;
-  opacity: 0.1; /* transparansi agar tidak mengganggu teks */
+  opacity: 0.1; 
   z-index: 0;
 }
 
 #tentang > * {
   position: relative;
-  z-index: 1; /* pastikan konten tetap di atas logo */
+  z-index: 1; 
 }
 
-/* Kamu bisa pakai ulang untuk section lain */
 #produk::before,
 #testimoni::before,
 #kontak::before {
@@ -202,12 +209,14 @@ h2 {
   50% { transform: translateX(200%) rotate(25deg); opacity: 0.8; }
   100% { transform: translateX(400%) rotate(25deg); opacity: 0; }
 }
+
 /* Gambar di dalam card */
 .card img {
   border-radius: 12px 12px 0 0;
   transition: transform 0.4s ease;
 }
 .card:hover img { transform: scale(1.05); }
+
 /* Judul dan tombol */
 .card-title { color: var(--otnas-secondary); font-weight: 600; }
 .btn-outline-primary {
@@ -224,7 +233,6 @@ h2 {
 
 /* Galeri & Testimoni dengan parallax */
 #galeri, #testimoni {
-  position: relative;
   padding: 80px 0;
   color: var(--otnas-white);
 }
@@ -264,24 +272,19 @@ footer a:hover {
   transform: scale(1.2);
 }
 
-/* Animasi teks masuk section */
+/* Animasi teks masuk section - FIX AMAN UNTUK MOBILE VIA !IMPORTANT RESET */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
   transition: all 0.8s ease;
 }
 .reveal.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0) scale(1) !important;
 }
 .fade-up { transform: translateY(40px); }
-.fade-up.active { transform: translateY(0); }
 .fade-left { transform: translateX(-40px); }
-.fade-left.active { transform: translateX(0); }
 .fade-right { transform: translateX(40px); }
-.fade-right.active { transform: translateX(0); }
 .zoom-in { transform: scale(0.85); }
-.zoom-in.active { transform: scale(1); }
 
 /* Efek delay bertingkat untuk produk */
 #produk .row .col-md-4:nth-child(1) .card { transition-delay: 0.1s; }
@@ -297,3 +300,4 @@ footer a:hover {
 #testimoni .row .col-md-4:nth-child(1) .card { transition-delay: 0.1s; }
 #testimoni .row .col-md-4:nth-child(2) .card { transition-delay: 0.3s; }
 #testimoni .row .col-md-4:nth-child(3) .card { transition-delay: 0.5s; }
+/* Tanda kurung kurawal liar di baris terakhir yang merusak kode sebelumnya telah dihapus */
