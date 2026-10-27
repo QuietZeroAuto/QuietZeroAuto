@@ -124,8 +124,10 @@ body {
 
   background:
     linear-gradient(
-      rgba(10,10,10,0.7),
-      rgba(31,58,147,0.7)
+      180deg,
+      rgba(10, 10, 10, 0.72) 0%,
+      rgba(18, 30, 48, 0.58) 52%,
+      rgba(25, 45, 75, 0.72) 100%
     ),
     url("hero-car.jpg")
     center/cover
@@ -227,9 +229,25 @@ section {
 /* =========================
    CARD PRODUK
 ========================= */
-#produk .row > .col-md-4,
-#testimoni .row > .col-md-4 {
+#produk .row > [class*="col-"],
+#testimoni .row > [class*="col-"] {
   display: flex;
+}
+
+#produk .card,
+#testimoni .card {
+  width: 100%;
+  height: 100%;
+}
+
+#produk .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+#produk .card-body .btn {
+  align-self: flex-start;
+  margin-top: auto;
 }
 
 .card {
@@ -246,11 +264,6 @@ section {
   transition:
   transform 0.4s ease,
   box-shadow 0.4s ease;
-
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 .card:hover {
@@ -269,32 +282,9 @@ section {
   transform: scale(1.05);
 }
 
-.card-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
 .card-title {
   color: var(--otnas-secondary);
   font-weight: 700;
-}
-
-.card-text {
-  flex: 1;
-}
-
-#produk .btn-outline-primary {
-  margin-top: auto;
-}
-
-#testimoni .card {
-  padding: 1.25rem;
-}
-
-#testimoni .card p {
-  flex: 1;
-  margin-bottom: 0.75rem;
 }
 
 /* =========================
