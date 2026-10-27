@@ -1,0 +1,500 @@
+/* =========================
+   PALET WARNA PREMIUM
+========================= */
+:root {
+  --otnas-primary: #0A0A0A;
+  --otnas-secondary: #1F3A93;
+  --otnas-gold: #C9A646;
+  --otnas-gray: #F5F5F5;
+  --otnas-white: #FFFFF0;
+}
+
+/* =========================
+   LOADER
+========================= */
+#loader {
+  position: fixed;
+  z-index: 9999;
+  background: #0A0A0A;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-spin {
+  animation: spin 2s linear infinite;
+}
+
+#loader.hidden {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* =========================
+   RESET
+========================= */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--otnas-white);
+  color: var(--otnas-primary);
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  padding: 0.8rem 1rem;
+
+  transition: all 0.4s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+.navbar-brand {
+  color: var(--otnas-gold);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand:hover {
+  color: var(--otnas-gold);
+}
+
+.navbar .nav-link {
+  color: white;
+  margin-left: 1rem;
+  font-weight: 500;
+
+  transition: 0.3s;
+}
+
+.navbar .nav-link:hover {
+  color: var(--otnas-gold);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      rgba(10,10,10,0.7),
+      rgba(31,58,147,0.7)
+    ),
+    url("hero-car.jpg")
+    center/cover
+    no-repeat
+    fixed;
+
+  color: white;
+}
+
+.hero-content {
+  z-index: 2;
+  padding: 20px;
+}
+
+.hero-logo {
+  width: 120px;
+  height: auto;
+
+  margin-bottom: 20px;
+
+  animation: spin 0s linear infinite;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: var(--otnas-gold);
+
+  text-shadow:
+    0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+.hero .btn-primary {
+  background: var(--otnas-secondary);
+  border: none;
+
+  transition: 0.3s;
+}
+
+.hero .btn-primary:hover {
+  background: var(--otnas-gold);
+  color: black;
+
+  transform: scale(1.05);
+}
+
+/* =========================
+   JUDUL SECTION
+========================= */
+h2 {
+  color: var(--otnas-secondary);
+  font-weight: 700;
+}
+
+section {
+  position: relative;
+}
+
+/* =========================
+   WATERMARK LOGO
+========================= */
+#tentang,
+#produk,
+#testimoni,
+#kontak {
+  overflow: hidden;
+}
+
+#tentang::before,
+#produk::before,
+#testimoni::before,
+#kontak::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+  url("logo.png")
+  center/300px
+  no-repeat;
+
+  opacity: 0.16;
+
+  z-index: 0;
+}
+
+#tentang > *,
+#produk > *,
+#testimoni > *,
+#kontak > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   CARD PRODUK
+========================= */
+.card {
+  border: none;
+
+  border-radius: 15px;
+
+  background: rgba(255,255,255,0.7);
+
+  backdrop-filter: blur(10px);
+
+  overflow: hidden;
+
+  transition:
+  transform 0.4s ease,
+  box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform:
+  translateY(-8px);
+
+  box-shadow:
+  0 15px 30px rgba(0,0,0,.2);
+}
+
+.card img {
+  transition: 0.4s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card-title {
+  color: var(--otnas-secondary);
+  font-weight: 700;
+}
+
+/* =========================
+   CAHAYA BERJALAN
+========================= */
+.card::after {
+  content: "";
+
+  position: absolute;
+
+  top: -50%;
+  left: -50%;
+
+  width: 200%;
+  height: 200%;
+
+  background:
+  linear-gradient(
+    120deg,
+    transparent,
+    rgba(201,166,70,.25),
+    transparent
+  );
+
+  animation:
+  lightSweep 7s linear infinite;
+}
+
+@keyframes lightSweep {
+
+  0% {
+    transform:
+    translateX(-200%)
+    rotate(25deg);
+  }
+
+  100% {
+    transform:
+    translateX(400%)
+    rotate(25deg);
+  }
+
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn-outline-primary {
+  color: var(--otnas-secondary);
+  border-color: var(--otnas-secondary);
+
+  transition: 0.3s;
+}
+
+.btn-outline-primary:hover {
+  background: var(--otnas-gold);
+  border-color: var(--otnas-gold);
+
+  color: black;
+
+  transform: scale(1.05);
+}
+
+/* =========================
+   GALERI
+========================= */
+#galeri {
+  padding: 80px 0;
+
+  background:
+  url("gallery-bg.jpg")
+  center/cover
+  fixed;
+
+  overflow: hidden;
+}
+
+#galeri::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+  rgba(0,0,0,.55);
+}
+
+#galeri h2,
+#galeri .row {
+  position: relative;
+  z-index: 1;
+}
+
+#galeri h2 {
+  color: white;
+}
+
+/* =========================
+   TESTIMONI
+========================= */
+#testimoni {
+  padding: 80px 0;
+
+  background:
+  url("testimoni-bg.jpg")
+  center/cover
+  fixed;
+
+  color: white;
+}
+
+#testimoni::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+  rgba(10,10,10,.65);
+
+  z-index: 0;
+}
+
+#testimoni h2,
+#testimoni .row {
+  position: relative;
+  z-index: 2;
+}
+
+#testimoni h2 {
+  color: white;
+}
+
+/* =========================
+   FORM
+========================= */
+.form-control {
+  border-radius: 10px;
+}
+
+.form-control:focus {
+  border-color: var(--otnas-gold);
+
+  box-shadow:
+  0 0 10px rgba(201,166,70,.4);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background:
+  rgba(10,10,10,0.85);
+
+  color: white;
+
+  backdrop-filter: blur(8px);
+
+  border-top:
+  1px solid rgba(255,255,255,.1);
+}
+
+footer a {
+  color: white;
+
+  margin: 0 8px;
+
+  transition: .3s;
+}
+
+footer a:hover {
+  color: var(--otnas-gold);
+
+  transform: scale(1.2);
+}
+
+/* =========================
+   ANIMASI SCROLL REVEAL
+========================= */
+.reveal {
+  opacity: 0;
+
+  transition:
+  all .8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+
+  transform:
+  translate(0)
+  scale(1)
+  !important;
+}
+
+.fade-up {
+  transform: translateY(40px);
+}
+
+.fade-left {
+  transform: translateX(-40px);
+}
+
+.fade-right {
+  transform: translateX(40px);
+}
+
+.zoom-in {
+  transform: scale(.85);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-logo {
+    width: 90px;
+  }
+
+  .navbar .nav-link {
+    margin-left: 0;
+    padding: 10px 0;
+  }
+
+  
+}
